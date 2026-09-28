@@ -2,6 +2,8 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
+const repositoryRoutes = require("./routes/repository.routes.js");
+
 const app = express();
 
 app.use(cors({
@@ -15,6 +17,8 @@ app.get("/api/health", (req, res) => {
         message: "CodeSentinel AI API is running"
     });
 });
+
+app.use("/api/repositories", repositoryRoutes);
 
 const PORT = process.env.PORT || 5000;
 
