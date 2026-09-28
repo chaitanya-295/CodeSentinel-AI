@@ -1,6 +1,8 @@
 import React from "react";
 import logo from "../assets/logo3.png";
 import { PiShootingStarLight } from "react-icons/pi";
+import { GoDotFill } from "react-icons/go";
+
 
 function Hero() {
     return (
@@ -39,7 +41,7 @@ function Hero() {
                 </div>
             </nav>
 
-            <div className="flex-1 px-6 py-20">
+            <div className="flex-1 px-6 pt-10">
                 <div className="max-w-4xl mx-auto">
                     <div className="flex justify-center mb-6">
                         <div className="text-gray-600 text:sm px-4 py-2 rounded-full flex items-center gap-2">
@@ -71,6 +73,15 @@ function Hero() {
                                 View Demo
                             </button>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div className="flex items-center justify-between gap-4 px-8">
+                <div className="relative inline-block">
+                    <div className="text-black px-5 py-1 rounded-full flex items-center gap-2 border border-cyan-800 bg-white-700">
+                        <GoDotFill />Multi-Agent Analysis
                     </div>
                 </div>
             </div>
