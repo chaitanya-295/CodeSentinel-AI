@@ -50,7 +50,7 @@ function Hero() {
                         </div>
                     </div>
 
-                    <div className="text-center mb-28">
+                    <div className="text-center mb-20">
                         <h1 className="text-4xl md:text-6xl font-semibold leading-tight max-w-4xl mx-auto">
                             Secure Your Code with
                             <span className="relative inline-block">
@@ -75,16 +75,36 @@ function Hero() {
                         </div>
                     </div>
                 </div>
-            </div>
 
+                <div className="flex flex-wrap items-center justify-center gap-4 px-2 sm:px-6 py-2 sm:py-6">
+                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-sky shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+                        <GoDotFill className="text-cyan-500" />
+                        Multi-Agent Analysis
+                    </div>
 
-            <div className="flex items-center justify-between gap-4 px-8">
-                <div className="relative inline-block">
-                    <div className="text-black px-5 py-1 rounded-full flex items-center gap-2 border border-cyan-800 bg-white-700">
-                        <GoDotFill />Multi-Agent Analysis
+                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-sky shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+                        <GoDotFill className="text-cyan-500" />
+                        Security Scanning
+                    </div>
+
+                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-sky shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+                        <GoDotFill className="text-cyan-500" />
+                        Automated Fix Suggestions
+                    </div>
+
+                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-sky shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+                        <GoDotFill className="text-cyan-500" />
+                        Developer-Friendly Reports
+                    </div>
+
+                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-sky shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+                        <GoDotFill className="text-cyan-500" />
+                        Intelligent Code Insights
                     </div>
                 </div>
             </div>
+
+
         </div>
     );
 }
