@@ -9,8 +9,8 @@ function Hero() {
         <div className="min-h-screen bg-gradient-to-b from-slate-50 to-sky-300">
 
             {/* Home Page Navbar */}
-            <nav className="sticky top-0 z-50 bg-transparent backdrop-blur-md">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-3">
+            <nav className="sticky top-0 z-50 bg-transparent backdrop-blur-md scroll-px-2 border-b-1">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-2">
                     <div className="flex items-center justify-between gap-4">
 
                         {/* Logo + Brand */}
@@ -103,8 +103,6 @@ function Hero() {
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
 }
