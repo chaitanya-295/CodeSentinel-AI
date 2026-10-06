@@ -9,7 +9,7 @@ function Hero() {
         <div className="min-h-screen bg-gradient-to-b from-slate-50 to-sky-300">
 
             {/* Home Page Navbar */}
-            <nav className="sticky top-0 z-50 bg-transparent backdrop-blur-md scroll-px-2 border-b-1">
+            <nav className="sticky top-0 z-50 bg-transparent backdrop-blur-md scroll-px-2 border-b border-slate-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-2">
                     <div className="flex items-center justify-between gap-4">
 
@@ -23,17 +23,17 @@ function Hero() {
 
                             <h1 className="text-lg sm:text-xl font-bold text-black">
                                 Code<span className="text-cyan-400">Sentinel</span>
-                                <span className="text-black-400"> - AI</span>
+                                <span className="text-black-500"> - AI</span>
                             </h1>
                         </div>
 
                         {/* Right Button */}
                         <div className="flex items-center gap-4">
-                            <button className="hidden sm:block w-27 sm:w-36 px-4 py-2 text-sm font-medium text-black-200 border border-slate-700 rounded-lg hover:border-cyan-400 hover:text-cyan-400 transition">
+                            <button className="hidden sm:block w-28 sm:w-36 px-4 py-2 text-sm font-medium text-black-200 border border-slate-700 rounded-lg hover:border-cyan-400 hover:text-cyan-400 transition">
                                 GitHub
                             </button>
 
-                            <button className="px-4 py-2 w-27 sm:w-36 text-sm font-semibold text-slate-950 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition">
+                            <button className="px-4 py-2 w-28 sm:w-36 text-sm font-semibold text-slate-950 bg-cyan-400 rounded-lg hover:bg-cyan-300 transition">
                                 Get Started
                             </button>
                         </div>
@@ -44,7 +44,7 @@ function Hero() {
             <div className="flex-1 px-6 pt-10">
                 <div className="max-w-4xl mx-auto">
                     <div className="flex justify-center mb-6">
-                        <div className="text-gray-600 text:sm px-4 py-2 rounded-full flex items-center gap-2">
+                        <div className="text-gray-600 text-sm px-4 py-2 rounded-full flex items-center gap-2">
                             <PiShootingStarLight size={21} className="text-cyan-600" />
                             Your Code’s First Line of Defense.
                         </div>
@@ -77,27 +77,27 @@ function Hero() {
                 </div>
 
                 <div className="flex flex-wrap items-center justify-center gap-4 px-2 sm:px-6 py-2 sm:py-6">
-                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-sky shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
                         <GoDotFill className="text-cyan-500" />
                         Multi-Agent Analysis
                     </div>
 
-                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-sky shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
                         <GoDotFill className="text-cyan-500" />
                         Security Scanning
                     </div>
 
-                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-sky shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
                         <GoDotFill className="text-cyan-500" />
                         Automated Fix Suggestions
                     </div>
 
-                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-sky shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
                         <GoDotFill className="text-cyan-500" />
                         Developer-Friendly Reports
                     </div>
 
-                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-sky shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
+                    <div className="px-5 py-2 rounded-full flex items-center gap-2 border border-cyan-800 bg-white/70 backdrop-blur-sm shadow-lg hover:shadow-cyan-400/50 transition-all duration-300">
                         <GoDotFill className="text-cyan-500" />
                         Intelligent Code Insights
                     </div>

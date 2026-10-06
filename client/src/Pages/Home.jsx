@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Hero from "../components/Hero";
+import logo from "../assets/logo3.png";
 import { FiSearch, FiShield, FiZap, FiGitPullRequest, FiFileText, FiAlertCircle, FiGithub, FiCpu, FiPackage, FiCode, FiArrowRight, FiCheck } from "react-icons/fi";
 import ProductSections from "../components/ProductSections";
 import MultiAgentArchitecture from "../components/MultiAgentArchitecture";
@@ -55,7 +56,7 @@ function Home() {
             <Hero />
 
             {/* What We Do */}
-            <section className="bg-white py-18 sm:py-26">
+            <section className="bg-white py-16 sm:py-20">
                 <div className="max-w-7xl mx-auto px-6 sm:px-10">
 
                     <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
@@ -82,10 +83,12 @@ function Home() {
                             <div className="mt-10 flex items-center gap-3 text-sm font-medium text-gray-500">
                                 <span className="w-10 h-[1px] bg-cyan-500"></span>
                                 Analyze
-                                <span>•</span>
+                                <span className="text-cyan-500">•</span>
                                 Detect
-                                <span>•</span>
+                                <span className="text-cyan-500">•</span>
                                 Fix
+                                <span className="text-cyan-500">•</span>
+                                Review
                             </div>
                         </div>
 
@@ -104,7 +107,7 @@ function Home() {
                                         {/* CLICKABLE ROW */}
                                         <button
                                             onClick={() => handleClick(service.number)}
-                                            className="w-full flex items-center justify-between py-6 sm:py-8 text-left group"
+                                            className="w-full flex items-center justify-between py-2 sm:py-7 text-left group"
                                         >
                                             <div className="flex items-center gap-5 sm:gap-6">
 
@@ -182,7 +185,7 @@ function Home() {
                             Multi-Agent Architecture
                         </p>
 
-                        <h2 className="mt-2 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
+                        <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-semibold tracking-tight">
                             One codebase
                             <br />
                             <span className="text-cyan-400">
@@ -294,7 +297,7 @@ function Home() {
                         </svg>
 
                         {/* Input Node */}
-                        <div className="absolute left-[5%] top-[80px]">
+                        <div className="absolute left-[5%] top-[65px]">
 
                             <Node
                                 icon={<FiGithub />}
@@ -403,7 +406,7 @@ function Home() {
             </section>
 
             {/* Security / Code Analysis Results */}
-            <section className="bg-white py-20 sm:py-28">
+            <section className="bg-white py-8 sm:py-16">
                 <div className="max-w-6xl mx-auto px-6">
 
                     <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -432,7 +435,7 @@ function Home() {
                         </div>
 
                         {/* Right - Analysis Preview */}
-                        <div className="border border-gray-200 rounded-2xl overflow-hidden shadow-sm">
+                        <div className="border border-gray-200 rounded-2xl overflow-hidden shadow-lg">
 
                             {/* Header */}
                             <div className="flex items-center justify-between px-5 py-4 border-b border-gray-200">
@@ -506,7 +509,7 @@ function Home() {
             </section>
 
             {/* Before & After */}
-            <section className="bg-slate-50 py-20 sm:py-28">
+            <section className="bg-slate-50 py-10 sm:py-18">
                 <div className="max-w-6xl mx-auto px-6">
 
                     <div className="text-center max-w-2xl mx-auto">
@@ -515,23 +518,23 @@ function Home() {
                             Before & After
                         </p>
 
-                        <h2 className="mt-5 text-4xl sm:text-5xl font-semibold text-black">
+                        <h2 className="mt-4 text-4xl sm:text-5xl font-semibold text-black">
                             From problem
                             <span className="text-cyan-500">
                                 {" "}to solution.
                             </span>
                         </h2>
 
-                        <p className="mt-5 text-gray-500 leading-7">
+                        <p className="mt-4 text-gray-500 leading-7">
                             Don't just find the problem. Understand it and get an actionable way to fix it.
                         </p>
                     </div>
 
                     {/* Comparison */}
-                    <div className="mt-16 grid md:grid-cols-2 gap-6">
+                    <div className="mt-7 grid md:grid-cols-2 gap-6">
 
                         {/* Before */}
-                        <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden">
+                        <div className="bg-white border border-gray-200 rounded-2xl overflow-hidden shadow-lg hover:-translate-y-2 duration-300">
 
                             <div className="px-6 py-4 border-b border-gray-200 flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-red-500" />
@@ -567,7 +570,7 @@ db.query(query);
                         </div>
 
                         {/* After */}
-                        <div className="bg-[#020617] text-white border border-slate-800 rounded-2xl overflow-hidden">
+                        <div className="bg-[#020617] text-white border border-slate-800 rounded-2xl overflow-hidden shadow-lg hover:-translate-y-2 duration-300">
 
                             <div className="px-6 py-4 border-b border-slate-800 flex items-center gap-3">
                                 <span className="w-2 h-2 rounded-full bg-cyan-400" />
@@ -605,19 +608,19 @@ db.query(query, [email]);`}
             </section>
 
             {/* Why CodeSentinel */}
-            <section className="bg-white py-24 sm:py-32">
+            <section className="bg-white py-14 sm:py-22">
                 <div className="max-w-6xl mx-auto px-6">
 
                     <div className="grid lg:grid-cols-2 gap-16">
 
                         {/* Heading */}
-                        <div>
+                        <div className="py-17">
 
                             <p className="text-sm uppercase tracking-[0.2em] text-cyan-600 font-semibold">
                                 Why CodeSentinel
                             </p>
 
-                            <h2 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold trackiung-tight text-black">
+                            <h2 className="mt-4 text-4xl sm:text-5xl lg:text-6xl font-semibold trackiung-tight text-black">
                                 More than a
                                 <br />
                                 <span className="text-cyan-500">
@@ -625,7 +628,7 @@ db.query(query, [email]);`}
                                 </span>
                             </h2>
 
-                            <p className="mt-6 text-gray-500 text-lg leading-8 max-w-md">
+                            <p className="mt-4 text-gray-500 text-lg leading-8 max-w-md">
                                 CodeSentinel combines intelligent analysis, security insights, explanations, and fixes into one developer-focused workflow.
                             </p>
                         </div>
@@ -663,8 +666,8 @@ db.query(query, [email]);`}
             </section>
 
             {/* CTA */}
-            <section className="bg-white py-8 sm:py-16 px-40">
-                <div className="bg-[#020617] items-center justify-center rounded-[40px]">
+            <section className="bg-slate-50 py-8 sm:py-16 px-40">
+                <div className="bg-[#020617] items-center justify-center rounded-[40px] shadow-2xl border border-slate-200 hover:-translate-y-1 duration-300">
                     <div className="max-w-5xl mx-auto px-6 text-center py-10">
 
                         <p className="text-sm uppercase tracking-[0.2em] text-cyan-400">
@@ -710,11 +713,18 @@ db.query(query, [email]);`}
                         {/* Brand */}
                         <div className="lg:col-span-2">
 
-                            <h3 className="text-2xl font-bold">
-                                Code<span className="text-cyan-400">
-                                    Sentinel
-                                </span>
-                            </h3>
+                            <div className="flex items-center">
+                                <img
+                                    src={logo}
+                                    alt="CodeSentinel Logo"
+                                    className="w-16 h-16 sm:w-16 sm:h-16 object-contain"
+                                />
+
+                                <h1 className="text-lg sm:text-xl font-bold text-white">
+                                    Code<span className="text-cyan-400">Sentinel</span>
+                                    <span className="text-white-400"> - AI</span>
+                                </h1>
+                            </div>
 
                             <p className="mt-4 max-w-sm text-slate-500 leading-7">
                                 AI-powered code auditing that helps developers find vulnerabilities, detect bugs, and ship safer software.
@@ -910,7 +920,7 @@ function Finding({ color, title, file, severity }) {
 
 function WhyItem({ number, title, description }) {
     return (
-        <div className="py-7 border-b border-gray-200 flex gap-6">
+        <div className="py-5 border-b border-gray-200 flex gap-6">
 
             <span className="text-sm font-mono text-cyan-500">
                 {number}
