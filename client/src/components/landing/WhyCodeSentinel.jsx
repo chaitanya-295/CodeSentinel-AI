@@ -9,7 +9,7 @@ function WhyCodeSentinel() {
                 <div className="grid lg:grid-cols-2 gap-16">
 
                     {/* Heading */}
-                    <div className="py-17">
+                    <div className="lg:py-17">
 
                         <p className="text-sm uppercase tracking-[0.2em] text-cyan-600 font-semibold">
                             Why CodeSentinel

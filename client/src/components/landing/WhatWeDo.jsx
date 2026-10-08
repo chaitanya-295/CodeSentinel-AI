@@ -99,7 +99,7 @@ function WhatWeDo() {
                                     {/* CLICKABLE ROW */}
                                     <button
                                         onClick={() => handleClick(service.number)}
-                                        className="w-full flex items-center justify-between py-2 sm:py-7 text-left group"
+                                        className="w-full flex items-center justify-between py-5 sm:py-7 text-left group"
                                     >
                                         <div className="flex items-center gap-5 sm:gap-6">
 
