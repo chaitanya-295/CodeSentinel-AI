@@ -312,6 +312,82 @@ function MultiAgentArchitecture() {
                                     </div>
                                 </div>
                             </div>
+
+                            {/* Arrow */}
+                            <MobileArrow />
+
+                            {/* Agents */}
+                            <div className="w-full">
+
+                                <p className="text-center text-[10px] uppercase tracking-[0.2em] text-slate-500 mb-4">
+                                    Specialized Agents
+                                </p>
+
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+
+                                    <AgentNode
+                                        icon={<FiShield />}
+                                        title="Security Agent"
+                                        text="Detects vulnerabilities"
+                                    />
+
+                                    <AgentNode
+                                        icon={<FiAlertCircle />}
+                                        title="Bug Agent"
+                                        text="Logic & Runtime Errors"
+                                    />
+
+                                    <AgentNode
+                                        icon={<FiCode />}
+                                        title="Quality Agent"
+                                        text="Code Quality"
+                                    />
+
+                                    <AgentNode
+                                        icon={<FiPackage />}
+                                        title="Dependency Agent"
+                                        text="Package Risks"
+                                    />
+
+                                    <AgentNode
+                                        icon={<FiZap />}
+                                        title="Performance Agent"
+                                        text="Performance Issues"
+                                    />
+
+                                </div>
+                            </div>
+
+                            {/* Arrow */}
+                            <MobileArrow />
+
+                            {/* Fix Agent */}
+                            <Node
+                                icon={<FiZap />}
+                                label="Fix Agent"
+                                sub="AI Suggestions"
+                                active
+                                small
+                            />
+
+                            {/* Arrow */}
+                            <MobileArrow />
+
+                            {/* Final Report */}
+                            <div className="w-full max-w-xs flex items-center justify-center gap-3 px-4 py-3 rounded-xl border border-slate-700 bg-[#0b1220]">
+
+                                <FiFileText className="text-cyan-400 text-lg shrink-0" />
+
+                                <div>
+                                    <p className="text-sm font-semibold">
+                                        Final Report
+                                    </p>
+
+                                    <p className="text-[10px] text-slate-500">
+                                        Findings • Severity • Fixes
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
