@@ -1,8 +1,11 @@
 import React from "react";
 import logo from "../../assets/logo3.png";
 import { FiGithub } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 function Navbar() {
+    const navigate = useNavigate();
+
     return (
         <nav className="sticky top-0 z-50 bg-white backdrop-blur-md scroll-px-2 border-b border-slate-200" >
             <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 pt-2">
@@ -28,7 +31,9 @@ function Navbar() {
                             <FiGithub size={22} />
                         </button>
 
-                        <button className="hidden sm:block w-24 sm:w-28 px-4 py-2 text-sm font-medium text-black-200 border border-slate-700 rounded-lg hover:border-cyan-400 hover:text-cyan-400 transition">
+                        <button
+                            onClick={() => navigate("/login")}
+                            className="hidden sm:block w-24 sm:w-28 px-4 py-2 text-sm font-medium text-black-200 border border-slate-700 rounded-lg hover:border-cyan-400 hover:text-cyan-400 transition">
                             Login
                         </button>
 

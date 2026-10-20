@@ -7,15 +7,11 @@ import BeforeAfter from "../components/landing/BeforeAfter";
 import WhyCodeSentinel from "../components/landing/WhyCodeSentinel";
 import Cta from "../components/landing/Cta";
 import Footer from "../components/common/Footer";
-import Navbar from "../components/common/Navbar";
 
 function Home() {
 
     return (
         <div>
-            {/* Navbar */}
-            <Navbar />
-
             {/* Hero Section */}
             <Hero />
 
