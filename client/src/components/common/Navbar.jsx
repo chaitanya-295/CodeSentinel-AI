@@ -12,7 +12,10 @@ function Navbar() {
                 <div className="flex items-center justify-between gap-4">
 
                     {/* Logo + Brand */}
-                    <div className="flex items-center">
+                    <div
+                        onClick={() => navigate("/")}
+                        className="flex items-center cursor-pointer"
+                    >
                         <img
                             src={logo}
                             alt="CodeSentinel Logo"

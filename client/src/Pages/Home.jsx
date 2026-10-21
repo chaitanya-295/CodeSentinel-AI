@@ -6,7 +6,6 @@ import CodeAnalysis from "../components/landing/CodeAnalysis";
 import BeforeAfter from "../components/landing/BeforeAfter";
 import WhyCodeSentinel from "../components/landing/WhyCodeSentinel";
 import Cta from "../components/landing/Cta";
-import Footer from "../components/common/Footer";
 
 function Home() {
 
@@ -32,9 +31,6 @@ function Home() {
 
             {/* CTA */}
             <Cta />
-
-            {/* Footer */}
-            <Footer />
         </div>
     );
 }
