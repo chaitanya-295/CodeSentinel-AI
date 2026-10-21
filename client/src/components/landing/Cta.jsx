@@ -1,7 +1,9 @@
 import React from "react";
 import { FiArrowRight, FiGithub } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
 
 function Cta() {
+    const navigate = useNavigate();
     return (
         <section className="bg-slate-50 px-4 sm:px-6 md:px-10 lg:px-20 xl:px-40 py-8 sm:py-12 md:py-16">
             <div className="bg-[#020617] flex items-center justify-center rounded-[24px] sm:rounded-[30px] md:rounded-[40px] shadow-2xl border border-slate-200 hover:-translate-y-1 duration-300">
@@ -28,7 +30,9 @@ function Cta() {
                     {/* Buttons */}
                     <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
 
-                        <button className="w-full sm:w-auto px-6 sm:px-7 py-2.5 rounded-full bg-cyan-400 text-slate-950 font-semibold text-sm sm:text-base hover:bg-cyan-300 transition flex items-center justify-center gap-2">
+                        <button
+                            onClick={() => navigate("/login")}
+                            className="w-full sm:w-auto px-6 sm:px-7 py-2.5 rounded-full bg-cyan-400 text-slate-950 font-semibold text-sm sm:text-base hover:bg-cyan-300 transition flex items-center justify-center gap-2">
                             Analyze Your Code
                             <FiArrowRight />
                         </button>

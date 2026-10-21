@@ -7,7 +7,7 @@ function Login() {
     const [showPassword, setShowPassword] = useState(false);
 
     return (
-        <div className="h-fit pt-10 bg-[#020617 flex items-center justify-center px-4 py-8]">
+        <div className="min-h-screen flex items-center justify-center px-4">
             <div className="w-full max-w-md">
 
                 {/* Logo */}
@@ -20,7 +20,7 @@ function Login() {
 
                     <h1 className="text-xl sm:text-2xl font-bold text-black">
                         Code<span className="text-cyan-400">Sentinel</span>
-                        <span className="text-black"> AI</span>
+                        <span className="text-black"> - AI</span>
                     </h1>
                 </div>
 

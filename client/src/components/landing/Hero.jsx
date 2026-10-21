@@ -1,8 +1,10 @@
 import React from "react";
 import { PiShootingStarLight } from "react-icons/pi";
 import { GoDotFill } from "react-icons/go";
+import { useNavigate } from "react-router-dom";
 
 function Hero() {
+    const navigate = useNavigate();
     const features = [
         "Multi-Agent Analysis",
         "Security Scanning",
@@ -38,7 +40,10 @@ function Hero() {
                             </p>
 
                             <div className="flex flex-wrap justify-center gap-4 mt-15">
-                                <button className="bg-[#020617] text-white px-10 py-3 rounded-full hover:opacity-90 transition shadow-md">
+                                <button
+                                    onClick={() => navigate("/login")}
+                                    className="bg-[#020617] text-white px-10 py-3 rounded-full hover:opacity-90 transition shadow-md"
+                                >
                                     Analyze Your Code
                                 </button>
 
