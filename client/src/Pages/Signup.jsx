@@ -1,11 +1,48 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/logo3.png";
 import { FiEye, FiEyeOff, FiGithub } from "react-icons/fi";
 
 function Signup() {
+    const navigate = useNavigate();
+
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+    });
+
+    const [error, setError] = useState("");
+    const [success, setSuccess] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    // Handle input changes
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+
+        setFormData((prev) => ({
+            ...prev,
+            [name]: value,
+        }));
+    };
+
+    // Handle signup
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        setError("");
+        setSuccess("");
+
+        // Frontend validation
+        if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
+            setError("Please fill in all fields.");
+            return;
+        }
+    }
 
     return (
         <div className="min-h-screen flex items-center justify-center px-4 sm:px-6 md:px-8 py-8 sm:py-10 md:py-12">

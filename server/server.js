@@ -1,26 +1,40 @@
-const express = require("express");
-const cors = require("cors");
-require("dotenv").config();
+import express from "express";
+import cors from "cors";
+import cookieParser from "cookie-parser";
+import dotenv from "dotenv";
+import connectDb from "./config/connectDB.js";
+import authRoutes from "./routes/authRoutes.js";
 
-const repositoryRoutes = require("./routes/repository.routes.js");
+dotenv.config();
 
 const app = express();
 
-app.use(cors({
-    origin: "http://localhost:5173"
-}));
+//Database
+connectDb();
+
+//Middleware
+app.use(
+    cors({
+        origin: process.env.CLIENT_URL,
+        credentials: true,
+    })
+);
+
 app.use(express.json());
 
-app.get("/api/health", (req, res) => {
+app.use(cookieParser());
+
+// Routes
+app.get("/", (req, res) => {
     res.json({
-        success: true,
-        message: "CodeSentinel AI API is running"
+        message: "CodeSentinel API is running",
     });
 });
 
-app.use("/api/repositories", repositoryRoutes);
+app.use("/api/auth", authRoutes);
 
-const PORT = process.env.PORT || 5000;
+// Server
+const PORT = process.env.PORT || 8000;
 
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
