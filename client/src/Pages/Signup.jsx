@@ -113,6 +113,10 @@ function Signup() {
 
                     {/* GitHub Signup */}
                     <button
+                        type="button"
+                        onClick={() => {
+                            window.location.href = "http://localhost:8000/api/auth/github";
+                        }}
                         className="w-full flex items-center justify-center gap-2 sm:gap-3 py-2.5 sm:py-3 rounded-lg border border-slate-700 text-xs sm:text-sm font-medium text-slate-800 hover:border-cyan-400 hover:text-cyan-400 transition"
                     >
                         <FiGithub size={18} className="sm:w-5 sm:h-5" />

@@ -1,5 +1,5 @@
 import express from "express";
-import { signup, login } from "../controllers/authController.js";
+import { signup, login, githubLogin, githubCallback, } from "../controllers/authController.js";
 import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
@@ -33,5 +33,9 @@ router.post("/logout", (req, res) => {
         message: "Logged out successfully",
     });
 });
+
+// GitHub login
+router.get("/github", githubLogin);
+router.get("/github/callback", githubCallback);
 
 export default router;
