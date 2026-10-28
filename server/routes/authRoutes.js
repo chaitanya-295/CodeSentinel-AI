@@ -1,5 +1,5 @@
 import express from "express";
-import { signup, login, githubLogin, githubCallback, } from "../controllers/authController.js";
+import { signup, login, githubLogin, githubCallback, forgotPassword, resetPassword, } from "../controllers/authController.js";
 import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = express.Router();
@@ -37,5 +37,11 @@ router.post("/logout", (req, res) => {
 // GitHub login
 router.get("/github", githubLogin);
 router.get("/github/callback", githubCallback);
+
+// Forgot password
+router.post("/forgot-password", forgotPassword);
+
+// Reset password
+router.post("/reset-password/:token", resetPassword);
 
 export default router;

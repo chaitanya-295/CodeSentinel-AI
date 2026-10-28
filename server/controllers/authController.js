@@ -2,6 +2,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
 import axios from "axios";
+import crypto from "crypto";
+import nodemailer from "nodemailer";
 
 // Create JWT
 const createToken = (userId) => {
@@ -13,6 +15,15 @@ const createToken = (userId) => {
         }
     );
 };
+
+// Email Transporter
+const transporter = nodemailer.createTransport({
+    service: "gmail",
+    auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS,
+    },
+});
 
 // Signup
 export const signup = async (req, res) => {
@@ -307,5 +318,212 @@ export const githubCallback = async (req, res) => {
         res.redirect(
             "http://localhost:5173/login?error=github_auth_failed"
         );
+    }
+};
+
+export const getCurrentUser = async (req, res) => {
+    try {
+        const user = await User.findById(req.userId).select(
+            "-password -resetPasswordToken -resetPasswordExpires"
+        );
+
+        if (!user) {
+            return res.status(404).json({
+                success: false,
+                message: "User not found",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            user: {
+                id: user._id,
+                name: user.name,
+                email: user.email,
+                avatar: user.avatar,
+                authProvider: user.authProvider,
+            },
+        });
+    } catch (error) {
+        console.error("Get current user error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Server error",
+        });
+    }
+};
+
+// ForgotPassword
+export const forgotPassword = async (req, res) => {
+    try {
+        const { email } = req.body;
+
+        if (!email) {
+            return res.status(400).json({
+                success: false,
+                message: "Email is required",
+            });
+        }
+
+        const user = await User.findOne({
+            email: email.toLowerCase(),
+        });
+
+        // Don't reveal whether an account exists
+        if (!user) {
+            return res.status(200).json({
+                success: true,
+                message: "If an account with this email exists, a reset link has been sent.",
+            });
+        }
+
+        // GitHub user don't have a local password
+        if (user.authProvider === "github" && !user.password) {
+            return res.status(400).json({
+                success: false,
+                message: "This account uses GitHub login. Please continue with GitHub.",
+            });
+        }
+
+        // Generate secure random token
+        const resetToken = crypto.randomBytes(32).toString("hex");
+
+        // Store token and expiry in database
+        user.resetPasswordToken = resetToken;
+        user.resetPasswordExpires = Date.now() + 15 * 60 * 1000;
+
+        await user.save();
+
+        // Reset URL
+        const resetUrl = `https://localhost/reset-password/${resetToken}`;
+
+        // Sent email
+        await transporter.sendMail({
+            from: `"CodeSentinel AI" <${process.env.EMAIL_USER}>`,
+            to: user.email,
+            subject: "Reset Your CodeSentinel Password",
+            html: `
+                <div style="font-family: Arial, sans-serif; max-width: 600px; margin: auto;>
+                    <h2 style="color: #06b6d4;">
+                        CodeSentinel AI
+                    </h2>
+
+                    <p>
+                        Click the button below to create a new password.
+                    </p>
+
+                    <a 
+                        href="${resetUrl}"
+                        style="
+                            display: inline-block;
+                            padding: 12px 20px;
+                            background:#06b6d4;
+                            color: white;
+                            text-decoration: none;
+                            border-radius: 6px;
+                        "
+                    >
+                        Reset Password
+                    </a>
+
+                    <p style="margin-top: 20px;">
+                        This link will expire in 15 minutes.
+                    </p>
+
+                    <p>
+                        If you didn't request this, you can safely ignore this email.
+                    </p>
+                </div>
+            `
+        });
+
+        res.status(200).json({
+            success: true,
+            message: "If an account exists with this email, a reset link has been sent.",
+        });
+    } catch (error) {
+        console.error("Forgot password error:", error);
+
+        res.status(500).json({
+            success: false,
+            message: "Unable to process reset request",
+        });
+    }
+};
+
+// Reset Password
+export const resetPassword = async (req, res) => {
+    try {
+        const { token } = req.params;
+        const { password, confirmPassword } = req.body;
+
+        if (!password || !confirmPassword) {
+            return res.status(400).json({
+                success: false,
+                message: "Password and confirm password are required.",
+            });
+        }
+
+        if (password !== confirmPassword) {
+            return res.status(400).json({
+                success: false,
+                message: "Password and confirm password are required.",
+            });
+        }
+
+        if (password !== confirmPassword) {
+            return res.status(400).json({
+                success: false,
+                message: "Password do not match.",
+            });
+        }
+
+        if (password.length < 6) {
+            return res.status(400).json({
+                success: false,
+                message: "Password must be at least 6 characters",
+            });
+        }
+
+        const user = await User.findOne({
+            resetPasswordToken: token,
+            resetPasswordExpires: {
+                $gt: new Date(),
+            },
+        });
+
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                message: "Reset link is invalid or expired.",
+            });
+        }
+
+        const hashedPassword = await bcrypt.hash(
+            password,
+            10
+        );
+
+        user.password = hashedPassword;
+
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpires = undefined;
+
+        user.authProvider = "local";
+
+        await user.save();
+
+        return res.status(200).json({
+            success: true,
+            message: "Password reset successfully",
+        });
+    } catch (error) {
+        console.error("Reset password error:", error);
+
+        return res.status(500).json({
+            success: false,
+            message: "Unable to reset password",
+        });
     }
 };

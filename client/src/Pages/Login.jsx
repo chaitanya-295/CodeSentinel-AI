@@ -142,7 +142,7 @@ function Login() {
                         </div>
 
                         {/* Password */}
-                        <div className="mb-5">
+                        <div className="mb-2">
                             <label className="block text-xs sm:text-sm text-slate-800 mb-2">
                                 Password
                             </label>
@@ -169,6 +169,16 @@ function Login() {
                                     )}
                                 </button>
                             </div>
+                        </div>
+
+                        {/* Forgot Password */}
+                        <div className="flex justify-end mb-2">
+                            <Link
+                                to="/forgot-password"
+                                className="text-xs sm:text-sm text-cyan-400 hover:text-cyan-300 transition"
+                            >
+                                Forgot password?
+                            </Link>
                         </div>
 
                         {/* Error */}

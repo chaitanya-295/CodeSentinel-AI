@@ -30,7 +30,12 @@ function Navbar() {
 
                     {/* Right Button */}
                     <div className="flex items-center gap-2 sm:gap-4">
-                        <button className="hidden sm:flex w-10 sm:w-12 h-10 items-center justify-center text-slate-800 rounded-lg hover:text-cyan-400 transition">
+                        <button
+                            type="button"
+                            onClick={() => {
+                                window.location.href = "http://localhost:8000/api/auth/github";
+                            }}
+                            className="hidden sm:flex w-10 sm:w-12 h-10 items-center justify-center text-slate-800 rounded-lg hover:text-cyan-400 transition">
                             <FiGithub size={22} />
                         </button>
 

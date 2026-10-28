@@ -36,6 +36,14 @@ const userSchema = new mongoose.Schema(
             enum: ["local", "github"],
             default: "local",
         },
+
+        resetPasswordToken: {
+            type: String,
+        },
+
+        resetPasswordExpires: {
+            type: Date,
+        }
     },
     {
         timestamps: true,
