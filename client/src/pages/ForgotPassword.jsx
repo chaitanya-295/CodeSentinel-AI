@@ -42,7 +42,7 @@ function ForgotPassword() {
     };
 
     return (
-        <div className="flex items-center justify-center px-4 py-35">
+        <div className="flex items-center justify-center px-4 py-27">
             <div className="w-full max-w-md">
 
                 {/* Logo*/}
@@ -64,7 +64,7 @@ function ForgotPassword() {
                 </div>
 
                 {/* Card */}
-                <div className="bg-gray-50 border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
+                <div className="bg-gray border border-slate-800 rounded-2xl p-6 sm:p-8 shadow-xl">
                     {/* Heading */}
                     <div className="text-center mb-8">
                         <h1 className="text-2xl sm:text-3xl font-bold">
@@ -109,7 +109,7 @@ function ForgotPassword() {
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="you@example.com"
-                                className="w-full px-4 py-3 rounded-lg bg-gray-100 border border-slate-700 placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition"
+                                className="w-full px-4 py-3 rounded-lg bg-gray border border-slate-700 placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition"
                             />
                         </div>
 

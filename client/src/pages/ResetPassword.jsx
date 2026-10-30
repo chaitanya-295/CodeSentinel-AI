@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { FiAlignCenter } from "react-icons/fi";
+import { FiAlignCenter, FiLock } from "react-icons/fi";
 import { resolvePath, useNavigate, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ResetPassword() {
     const { token } = useParams();
@@ -53,7 +54,7 @@ function ResetPassword() {
     };
 
     return (
-        <div className="min-h-screen bg-[#020617] flex items-center justify-center px-4">
+        <div className="flex items-center justify-center px-4 py-20">
             <div className="w-full max-w-md">
 
                 {/* Logo / Heading */}
@@ -65,17 +66,17 @@ function ResetPassword() {
                         />
                     </div>
 
-                    <h1 className="text-3xl font-bold text-white">
+                    <h1 className="text-3xl font-bold">
                         Reset Password
                     </h1>
 
-                    <p className="text-slate-400 mt-2">
+                    <p className="text-slate-500 mt-2">
                         Create a new password for your account.
                     </p>
                 </div>
 
                 {/* Card */}
-                <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6 sm:p-8">
+                <div className="bg-gray border border-slate-800 rounded-2xl p-6 sm:p-8">
 
                     {error && (
                         <div className="mb-5 p-3 rounded-lg bg-red-500/10 border border-red-500/20 text-red-400 text-sm">
@@ -96,7 +97,7 @@ function ResetPassword() {
                     >
                         {/* New Password */}
                         <div>
-                            <label className="block text-sm text-slate-300 mb-2">
+                            <label className="block text-sm text-slate-500 mb-2">
                                 New Password
                             </label>
 
@@ -113,7 +114,7 @@ function ResetPassword() {
                                         setPassword(e.target.value)
                                     }
                                     placeholder="Enter new password"
-                                    className="w-full bg-[#020617] border border-slate-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none focus:border-cyan-500 transition"
+                                    className="w-full border border-slate-700 rounded-lg py-3 pl-10 pr-4 placeholder-slate-500 outline-none focus:border-cyan-500 transition"
                                     required
                                 />
                             </div>
@@ -121,7 +122,7 @@ function ResetPassword() {
 
                         {/* Confirm Password */}
                         <div>
-                            <label className="block text-sm text-slate-300 mb-2">
+                            <label className="block text-sm text-slate-500 mb-2">
                                 Confirm Password
                             </label>
 
@@ -140,7 +141,7 @@ function ResetPassword() {
                                         )
                                     }
                                     placeholder="Confirm new password"
-                                    className="w-full bg-[#020617] border border-slate-700 rounded-lg py-3 pl-10 pr-4 text-white placeholder-slate-500 outline-none focus:border-cyan-500 transition"
+                                    className="w-full border border-slate-700 rounded-lg py-3 pl-10 pr-4 placeholder-slate-500 outline-none focus:border-cyan-500 transition"
                                     required
                                 />
                             </div>
@@ -150,7 +151,7 @@ function ResetPassword() {
                         <button
                             type="submit"
                             disabled={loading}
-                            className="w-full bg-cyan-500 hover:bg-cyan-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-semibold py-3 rounded-lg transition"
+                            className="w-full bg-cyan-300 hover:bg-cyan-400 disabled:opacity-50 disabled:cursor-not-allowed text-slate-950 font-semibold py-3 rounded-lg transition"
                         >
                             {loading
                                 ? "Resetting Password..."

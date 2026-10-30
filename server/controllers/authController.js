@@ -1,3 +1,4 @@
+import "dotenv/config";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import User from "../models/User.js";
@@ -321,39 +322,6 @@ export const githubCallback = async (req, res) => {
     }
 };
 
-export const getCurrentUser = async (req, res) => {
-    try {
-        const user = await User.findById(req.userId).select(
-            "-password -resetPasswordToken -resetPasswordExpires"
-        );
-
-        if (!user) {
-            return res.status(404).json({
-                success: false,
-                message: "User not found",
-            });
-        }
-
-        return res.status(200).json({
-            success: true,
-            user: {
-                id: user._id,
-                name: user.name,
-                email: user.email,
-                avatar: user.avatar,
-                authProvider: user.authProvider,
-            },
-        });
-    } catch (error) {
-        console.error("Get current user error:", error);
-
-        return res.status(500).json({
-            success: false,
-            message: "Server error",
-        });
-    }
-};
-
 // ForgotPassword
 export const forgotPassword = async (req, res) => {
     try {
@@ -396,7 +364,7 @@ export const forgotPassword = async (req, res) => {
         await user.save();
 
         // Reset URL
-        const resetUrl = `https://localhost/reset-password/${resetToken}`;
+        const resetUrl = `${process.env.CLIENT_URL}/reset-password/${resetToken}`;
 
         // Sent email
         await transporter.sendMail({
