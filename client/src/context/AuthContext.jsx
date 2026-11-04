@@ -4,18 +4,27 @@ import { useState } from "react";
 import { createContext } from "react";
 import API from "../services/api";
 
-const AuthContext = createContext();
+const AuthContext = createContext(null);
 
 export const AuthProvider = ({ children }) => {
-    const [user, setUser] = useState("");
+    const [user, setUser] = useState(null)
     const [loading, setLoading] = useState(true);
 
     const getCurrentUser = async () => {
         try {
             const response = await API.get("/auth/me");
 
-            setUser(response.data.user);
+            if (response.data?.success && response.data?.user) {
+                setUser(response.data.user);
+            } else {
+                setUser(null);
+            }
         } catch (error) {
+            // 401 simply means the user is not logged in.
+            if (error.response?.status !== 401) {
+                console.error("Get current user error:", error);
+            }
+
             setUser(null);
         } finally {
             setLoading(false);
@@ -51,4 +60,13 @@ export const AuthProvider = ({ children }) => {
     );
 };
 
-export const useAuth = () => useContext(AuthContext);
+export const useAuth = () => {
+    const context = useContext(AuthContext);
+    if (!context) {
+        throw new Error(
+            "useAuth must be used inside AuthProvider"
+        );
+    }
+
+    return context;
+}
